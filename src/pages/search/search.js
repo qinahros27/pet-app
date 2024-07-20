@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Hero from '../../components/hero';
-import { getPets } from '../../api/petfinder';
-import Pet from '../../components/pet';
+import Hero from '../../components/hero/hero';
+import { getPets } from '../../api/petFinder';
+import Pet from '../../components/pet/pet';
 // Import useSearchParams
 
 const SearchPage = () => {

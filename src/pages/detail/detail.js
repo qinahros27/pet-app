@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { getPetDetails } from '../../api/petfinder';
-import Hero from '../../components/hero';
+import { getPetDetails } from '../../api/petFinder';
+import Hero from '../../components/hero/hero';
 
 // Import useParams
 // Import Navigate
