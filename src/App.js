@@ -3,10 +3,14 @@ import SearchPage from './pages/search/search';
 import PetDetailsPage from './pages/detail/detail';
 import PetDetailsNotFound from './pages/petDetailsNotFound/notFound';
 import Root from './components/root/root';
+import {RouterProvider, createBrowserRouter, createRoutesFromElements, Route} from 'react-router-dom';
 
+const appRouter = createBrowserRouter(createRoutesFromElements(<Route path="/" element={<Root/>}></Route>))
 function App() {
   return (
-    <p>Router</p>
+   <RouterProvider router={appRouter}>
+
+   </RouterProvider>
   );
 }
 
