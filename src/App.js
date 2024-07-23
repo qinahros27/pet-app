@@ -5,7 +5,11 @@ import PetDetailsNotFound from './pages/petDetailsNotFound/notFound';
 import Root from './components/root/root';
 import {RouterProvider, createBrowserRouter, createRoutesFromElements, Route} from 'react-router-dom';
 
-const appRouter = createBrowserRouter(createRoutesFromElements(<Route path="/" element={<Root/>}></Route>))
+const appRouter = createBrowserRouter(createRoutesFromElements(
+  <Route path="/" element={<Root/>}>
+      <Route index element={<HomePage/>}/>
+  </Route>
+))
 function App() {
   return (
    <RouterProvider router={appRouter}>
