@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getPetTypes } from '../../api/petFinder';
+import {getPetTypes} from '../../api/petFinder.js';
 import Logo from '../../assets/logo.svg';
 import Search from '../search/search';
 
@@ -11,6 +11,7 @@ const Navigation = () => {
   useEffect(() => {
     async function getPetTypesData() {
       const { types } = await getPetTypes();
+      console.log(`hello pets type : ${types}`)
       setPetTypes(types);
     }
 
@@ -25,7 +26,6 @@ const Navigation = () => {
       </div>
       <ul className="nav-links">
         <li key={'all'}>
-          {/* These links should be NavLink component and add a special active class name if its an active link */}
           <a href="/"
             className='nav-link'
           >
@@ -35,7 +35,6 @@ const Navigation = () => {
         {petTypes
           ? petTypes.map((type) => (
               <li key={type.name}>
-                {/* These links should be NavLink component and add a special active class name if its an active link */}
                 <a href={`/${type._links.self.href.split('/').pop()}`}
                   key={type.name}
                   className='nav-link'               >
