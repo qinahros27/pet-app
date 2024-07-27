@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {getPetTypes} from '../../api/petFinder.js';
 import Logo from '../../assets/logo.svg';
 import Search from '../search/search';
-
+import { NavLink } from 'react-router-dom';
 // Import NavLink
 
 const Navigation = () => {
@@ -26,20 +26,20 @@ const Navigation = () => {
       </div>
       <ul className="nav-links">
         <li key={'all'}>
-          <a href="/"
+          <NavLink to="/"
             className='nav-link'
           >
             All Pets
-          </a>
+          </NavLink>
         </li>
         {petTypes
           ? petTypes.map((type) => (
               <li key={type.name}>
-                <a href={`/${type._links.self.href.split('/').pop()}`}
+                <NavLink to={`/${type._links.self.href.split('/').pop()}`}
                   key={type.name}
                   className='nav-link'               >
                   {type.name}s
-                </a>{' '}
+                </NavLink>{' '}
               </li>
             ))
           : 'Loading...'}
