@@ -3,7 +3,6 @@ import {getPetTypes} from '../../api/petFinder.js';
 import Logo from '../../assets/logo.svg';
 import Search from '../search/search';
 import { NavLink } from 'react-router-dom';
-// Import NavLink
 
 const Navigation = () => {
   const [petTypes, setPetTypes] = useState([]);
@@ -11,7 +10,6 @@ const Navigation = () => {
   useEffect(() => {
     async function getPetTypesData() {
       const { types } = await getPetTypes();
-      console.log(`hello pets type : ${types}`)
       setPetTypes(types);
     }
 
@@ -26,8 +24,7 @@ const Navigation = () => {
       </div>
       <ul className="nav-links">
         <li key={'all'}>
-          <NavLink to="/"
-            className='nav-link'
+          <NavLink to="/" className={ ({isActive}) => `nav-link ${isActive? 'nav-link-active':''}`}
           >
             All Pets
           </NavLink>
@@ -37,7 +34,7 @@ const Navigation = () => {
               <li key={type.name}>
                 <NavLink to={`/${type._links.self.href.split('/').pop()}`}
                   key={type.name}
-                  className='nav-link'               >
+                  className={ ({isActive}) => `nav-link ${isActive? 'nav-link-active':''}`} >
                   {type.name}s
                 </NavLink>{' '}
               </li>
